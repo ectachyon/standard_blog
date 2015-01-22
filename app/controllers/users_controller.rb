@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   	end
   end
 
+  def show
+    @posts = Post.where(user_id: current_user)
+  end
+
   def user_params
   	params.require(:user).permit(:email, :password, :password_confirmation)
   end
